@@ -51,6 +51,24 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
+router.delete('/rcart/:id',async (req,res)=>{
+       const userid = req.params.id;  
+    try{
+        const deletecart = await Cart.deleteMany({userid})
+        if (deletecart.deletedCount === 0) {
+      return res.status(404).json({ message: 'No cart items found for this user' });
+    }
+    res.status(200).json({
+      message: 'Cart items removed successfully',
+      deletedCount: deletecart.deletedCount
+    });
+
+    }catch(error){
+        console.error(error)
+        res.status(500).json({error :error.message})
+    }
+})
+
 router.put('/:id', async (req, res) => {
     try {
         let updatedata = {
