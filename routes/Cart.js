@@ -21,7 +21,7 @@ router.post('/create', async (req, res) => {
         });
         cartsave = await cart.save();
         res.status(201).json({ message: "Client Added Succefully !", cartsave });
-        console.log("client added", cartsave)
+        // console.log("client added", cartsave)
 
     } catch (err) {
         console.error(err);

@@ -22,13 +22,15 @@ const ClientRoutes = require('./routes/Client');
 const CartRoutes = require('./routes/Cart');
 const ReviewRoutes = require('./routes/review');
 const ItemRoutes = require('./routes/item');
-const userRoutes = require('./routes/user')
+const userRoutes = require('./routes/user');
+const orderRoutes = require('./routes/order');
 
 app.use('/client', ClientRoutes);
 app.use('/user',userRoutes);
 app.use('/Item', ItemRoutes)
 app.use('/Cart', CartRoutes);
 app.use('/review',ReviewRoutes);
+app.use('/order',orderRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello World');
