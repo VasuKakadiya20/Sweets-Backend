@@ -18,7 +18,7 @@ router.post('/create', async (req, res) => {
 
     const OrderID = nextNumber.toString().padStart(4, "0");
 
-    const { userid, Firstname, Lastname, Phonenumber, Email, Landmark, Pin_code, City, State, Total, Date, items, Status, Payment_method } = req.body;
+    const { userid, Firstname, Lastname, Phonenumber, Email, Landmark, Pin_code, City, State, shipping_Charge, Total, Date, items, Status, Payment_method } = req.body;
 
     if (!userid || !Firstname || !Lastname || !Phonenumber || !Email || !Landmark || !Pin_code || !City || !State || !Total || !Date) {
       return res.status(400).json({ msg: "All fields required!" });
@@ -36,6 +36,7 @@ router.post('/create', async (req, res) => {
       City,
       State,
       items,
+      shipping_Charge,
       Total,
       Date,
       Status,
